@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { mentorFormQuestions, regions } from "../util/datalist";
+import { mentorFormQuestions, regions, roles } from "../util/datalist";
 import axios from "axios";
 import { Button, Select, Stack, Textarea, TextInput } from "@mantine/core";
 import { isNotEmpty, useForm } from "@mantine/form";
-import { RiotIdChecker } from "./RequestForm";
 import { RiotIdCheckerField } from "./FormComponents";
 
 const MentorApplicationForm = ({ setSent }) => {
@@ -59,6 +58,17 @@ const MentorApplicationForm = ({ setSent }) => {
           setErrors={setErrors}
           getInputProps={getInputProps}
         />
+        <Select
+          label="Primary Role"
+          data={roles}
+          {...getInputProps("primaryRole")}
+        />
+        <Select
+          label="Secondary Role"
+          data={roles}
+          {...getInputProps("secondaryRole")}
+        />
+
         {mentorFormQuestions.map((question, i) => (
           <Textarea
             key={`MentorFormQuestion${i}`}

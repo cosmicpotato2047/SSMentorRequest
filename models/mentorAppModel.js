@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { appStatuses, regions } from "../util/datalist";
+import { appStatuses, regions, roles } from "../util/datalist";
 
 const MentorAppSchema = mongoose.Schema(
   {
@@ -72,6 +72,16 @@ const MentorAppSchema = mongoose.Schema(
         },
       },
     ],
+    primaryRole: {
+      type: String,
+      enum: roles,
+      required: true,
+    },
+    secondaryRole: {
+      type: String,
+      enum: roles,
+      required: true,
+    },
   },
   {
     timestamps: true,

@@ -132,6 +132,10 @@ const AppDetails = ({ item, reviewerId }) => {
       });
   };
 
+  // const handleDelete = (e) => {
+  //   axios.delete("/api/admin/application", { data: item._id }).then().catch();
+  // };
+
   return (
     <Container fluid>
       <Grid>
@@ -141,6 +145,10 @@ const AppDetails = ({ item, reviewerId }) => {
           </Text>
           <Text>
             <StyledLabel>Rank:</StyledLabel> {item.rank}
+          </Text>
+          <Text>
+            <StyledLabel>Roles: </StyledLabel> {item.primaryRole} /{" "}
+            {item.secondaryRole}
           </Text>
           <Text>
             <StyledLabel>Discord ID:</StyledLabel>{" "}
@@ -177,6 +185,7 @@ const AppDetails = ({ item, reviewerId }) => {
         <Grid.Col span={2}>
           <Flex justify="flex-end">
             <ConfirmationModal item={item} />
+            {/* <Button onClick={handleDelete}>Delete request</Button> */}
           </Flex>
         </Grid.Col>
         <Grid.Col span={12}>
@@ -229,7 +238,7 @@ const ConfirmationModal = ({ item }) => {
         command: actionRequested,
       })
       .then(({ data }) => alert(data))
-      .catch(() => alert("An error has occured. Notify Z"));
+      .catch(() => alert("An error has occurred. Notify Z"));
     setOpen(false);
   };
 

@@ -74,7 +74,7 @@ export async function voteOnApp({ id, vote, reviewer }) {
 }
 
 export async function deleteApp(id) {
-  const response = await MentorApp.findOneAndDelete({ discordId: id });
+  const response = await MentorApp.findByIdAndRemove(id);
   console.log(response);
 }
 
