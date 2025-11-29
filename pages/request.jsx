@@ -15,11 +15,7 @@ export default function Page() {
 
   if (pending == "Not Accepted" || pending == "In-Progress" || sent)
     page = <Pending />;
-  else if (pending == "Completed") {
-    <Completed />;
-  } else if (pending == "Problem") {
-    <Problem />;
-  } else if (terms) page = <RequestForm setSent={setSent} />;
+  else if (terms) page = <RequestForm setSent={setSent} />;
 
   return (
     <Layout loading={loading} notAuth={notAuth}>
