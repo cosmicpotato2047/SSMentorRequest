@@ -22,6 +22,7 @@ import Link from "next/link";
 import Icon from "./Icon";
 import { ClickToCopy } from "./Styles";
 import { Comments } from "./DetailsComponents";
+import { OPGGlink } from "./SummonerComponents";
 
 // --- STATUS BADGE ---
 export function getStatusBadge(status, date) {
